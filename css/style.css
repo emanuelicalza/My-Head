@@ -2,10 +2,31 @@ html,
 body {
     height: 100%;
     margin: 0;
-}
-
-body {
+    overflow: hidden; /* Evita criar barra de rolagem por causa dos gifs espalhados */
+    
+    /* Fundo de emojis de gato do passo anterior */
     background-color: #fce4ec;
     background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='80' height='80' viewBox='0 0 80 80'%3E%3Ctext x='15' y='35' font-size='26'%3E🐱%3C/text%3E%3Ctext x='55' y='75' font-size='22'%3E😸%3C/text%3E%3C/svg%3E");
     background-repeat: repeat;
+}
+
+/* Garante que o gato principal fique acima de todos os outros */
+.main-container {
+    position: relative;
+    z-index: 10;
+}
+
+#img {
+    max-width: 300px;
+    height: auto;
+}
+
+/* Classe que será aplicada aos gifs gerados pelo JS */
+.background-gif {
+    position: absolute;
+    width: 80px; /* Tamanho dos gatos de fundo */
+    height: auto;
+    opacity: 0.6; /* Deixa eles levemente transparentes */
+    pointer-events: none; /* Impede que eles bloqueiem o clique no gato principal */
+    z-index: 1; /* Fica atrás do gato principal */
 }
