@@ -1,4 +1,64 @@
 html,
 body {
-    height: 100%
+    height: 100%;
+    margin: 0;
+    overflow: hidden; /* Evita barra de rolagem */
+}
+
+/* Animação psicodélica piscando várias cores no fundo */
+@keyframes piscaFesta {
+    0%   { background-color: #ff0000; } 
+    16%  { background-color: #ff7f00; } 
+    33%  { background-color: #ffff00; } 
+    50%  { background-color: #00ff00; } 
+    66%  { background-color: #0000ff; } 
+    83%  { background-color: #8b00ff; } 
+    100% { background-color: #ff00ff; } 
+}
+
+body {
+    animation: piscaFesta 0.3s infinite;
+}
+
+/* Containers base para não interferirem no clique do centro */
+#fundo-emojis, #fundo-gifs {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none; 
+}
+
+#fundo-emojis {
+    z-index: 1; /* Fica lá atrás */
+}
+
+#fundo-gifs {
+    z-index: 2; /* Fica na frente dos emojis, mas atrás do principal */
+}
+
+/* Classe para os emojis individuais */
+.emoji-gato {
+    position: absolute;
+    font-size: 3rem;
+}
+
+/* Classe para os GIFs do fundo */
+.background-gif {
+    position: absolute;
+    width: 80px;
+    height: auto;
+    opacity: 0.7; /* Um pouco transparente */
+}
+
+/* Garante que o gato principal fique acima de tudo */
+.main-container {
+    position: relative;
+    z-index: 10;
+}
+
+#img {
+    max-width: 300px;
+    height: auto;
 }
